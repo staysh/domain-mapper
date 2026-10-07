@@ -1,0 +1,22 @@
+[project]
+name = "domain-mapper"
+version = "0.1.0"
+description = "Generate static site map and hop finder dashboards from YAML configs."
+requires-python = ">=3.10"
+dependencies = [
+    "beautifulsoup4",
+    "networkx",
+    "pyvis",
+    "PyYAML",
+    "requests",
+]
+
+[project.scripts]
+domain-mapper = "mapper:main"
+
+[tool.setuptools]
+py-modules = ["mapper"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"

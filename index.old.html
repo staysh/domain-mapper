@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Mapper Dashboard</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body, html { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overflow: hidden; background: #f4f6f8; }
+        
+        .nav-bar { 
+            display: flex; 
+            background: #1e293b; 
+            color: white; 
+            padding: 10px 20px; 
+            align-items: center; 
+            gap: 10px; 
+            border-bottom: 1px solid #334155; 
+            height: 50px;
+        }
+        .title { font-weight: bold; font-size: 15px; margin-right: 20px; color: #f8fafc; letter-spacing: 0.5px; }
+        
+        .tab-btn { 
+            background: transparent; 
+            border: none; 
+            color: #94a3b8; 
+            font-size: 14px; 
+            font-weight: 600; 
+            padding: 6px 14px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            transition: all 0.2s; 
+        }
+        .tab-btn:hover { color: white; background: #334155; }
+        .tab-btn.active { color: white; background: #2563eb; }
+        
+        .content-area { height: calc(100vh - 50px); width: 100%; position: relative; }
+        iframe { width: 100%; height: 100%; border: none; display: none; }
+        iframe.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="nav-bar">
+        <span class="title">🌐 DOMAIN MAPPER</span>
+        <button class="tab-btn active" onclick="switchTab('map', this)">Network Visualizer</button>
+        <button class="tab-btn" onclick="switchTab('hop', this)">Hop & Path Finder</button>
+    </div>
+
+    <div class="content-area">
+        <iframe id="mapFrame" src="site_map.html" class="active"></iframe>
+        <iframe id="hopFrame" src="hop_finder.html"></iframe>
+    </div>
+
+    <script>
+        function switchTab(tabName, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('iframe').forEach(f => f.classList.remove('active'));
+            
+            btn.classList.add('active');
+            if (tabName === 'map') {
+                document.getElementById('mapFrame').classList.add('active');
+            } else {
+                document.getElementById('hopFrame').classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>

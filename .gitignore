@@ -5,3 +5,7 @@
 !*.txt
 !*.md
 !*.gitignore
+!*.toml
+!*.yaml
+!*.yml
+!projects

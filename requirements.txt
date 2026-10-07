@@ -20,6 +20,7 @@ ptyprocess==0.7.0
 pure_eval==0.2.3
 Pygments==2.21.0
 pyvis==0.3.2
+PyYAML==6.0.3
 requests==2.34.2
 soupsieve==2.9.2
 stack-data==0.6.3

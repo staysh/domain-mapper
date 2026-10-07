@@ -1,0 +1,76 @@
+name: Accessibility
+start_url: https://www.pcc.edu/accessibility
+max_pages: 100
+delay_seconds: 0.5
+allow_subdomains: false
+limit_to_start_path: false
+
+traffic:
+  enabled: true
+  dir: traffic-data
+  internal_domains:
+    - pcc.edu
+  sample:
+    divisor: 30
+    rounding: nearest
+  doors:
+    enabled: true
+    external_ratio_threshold: 0.25
+    include_direct_in_denominator: true
+
+graph:
+  traffic:
+    enabled: true
+    node_heat:
+      enabled: true
+      scale: log
+      colors:
+        - "#140B34"
+        - "#84206B"
+        - "#E55C30"
+        - "#F6D746"
+    edge_heat:
+      enabled: true
+      scale: log
+      colors:
+        - "#140B34"
+        - "#84206B"
+        - "#E55C30"
+        - "#F6D746"
+    doors:
+      enabled: true
+      border_color: "#22C55E"
+      border_width: 4
+  colors:
+    default: "#97C2FC"
+    start: "#FFD700"
+    rules:
+      - color: "#57D9A3"
+        patterns:
+          - /instructional-support
+      - color: "#B682F2"
+        patterns:
+          - /disability
+
+# allow:
+#   patterns:
+#     - /disability
+#     - /instructional-support
+
+exclude:
+  patterns:
+    - /accessibility/knowledge-base
+    - /accessibility/training/knowledge-base
+    - /acessibility/accessibility-knowledge-base
+  strip_tags:
+    - nav
+    - header
+    - footer
+    - aside
+  strip_selectors: []
+  strip_class_or_id_keywords:
+    - nav
+    - header
+    - footer
+    - menu
+    - sidebar

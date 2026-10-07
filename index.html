@@ -3,68 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domain Mapper Dashboard</title>
+    <title>Domain Mapper Projects</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body, html { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overflow: hidden; background: #f4f6f8; }
-        
-        .nav-bar { 
-            display: flex; 
-            background: #1e293b; 
-            color: white; 
-            padding: 10px 20px; 
-            align-items: center; 
-            gap: 10px; 
-            border-bottom: 1px solid #334155; 
-            height: 50px;
-        }
-        .title { font-weight: bold; font-size: 15px; margin-right: 20px; color: #f8fafc; letter-spacing: 0.5px; }
-        
-        .tab-btn { 
-            background: transparent; 
-            border: none; 
-            color: #94a3b8; 
-            font-size: 14px; 
-            font-weight: 600; 
-            padding: 6px 14px; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            transition: all 0.2s; 
-        }
-        .tab-btn:hover { color: white; background: #334155; }
-        .tab-btn.active { color: white; background: #2563eb; }
-        
-        .content-area { height: calc(100vh - 50px); width: 100%; position: relative; }
-        iframe { width: 100%; height: 100%; border: none; display: none; }
-        iframe.active { display: block; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #172033; background: #f5f7fb; }
+        header { background: #1e293b; color: white; padding: 24px clamp(18px, 4vw, 48px); }
+        h1 { margin: 0; font-size: clamp(24px, 4vw, 38px); letter-spacing: 0; }
+        main { max-width: 980px; margin: 0 auto; padding: 32px clamp(18px, 4vw, 32px); }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+        .project-card { display: flex; flex-direction: column; gap: 10px; min-height: 128px; padding: 18px; border: 1px solid #d9e0ea; border-radius: 8px; background: white; color: inherit; text-decoration: none; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06); }
+        .project-card:hover { border-color: #2563eb; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1); }
+        .project-name { font-size: 18px; font-weight: 700; }
+        .project-url { color: #536174; font-size: 13px; overflow-wrap: anywhere; }
+        .empty { padding: 18px; border: 1px solid #d9e0ea; border-radius: 8px; background: white; color: #536174; }
     </style>
 </head>
 <body>
-
-    <div class="nav-bar">
-        <span class="title">🌐 DOMAIN MAPPER</span>
-        <button class="tab-btn active" onclick="switchTab('map', this)">Network Visualizer</button>
-        <button class="tab-btn" onclick="switchTab('hop', this)">Hop & Path Finder</button>
-    </div>
-
-    <div class="content-area">
-        <iframe id="mapFrame" src="site_map.html" class="active"></iframe>
-        <iframe id="hopFrame" src="hop_finder.html"></iframe>
-    </div>
-
-    <script>
-        function switchTab(tabName, btn) {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('iframe').forEach(f => f.classList.remove('active'));
-            
-            btn.classList.add('active');
-            if (tabName === 'map') {
-                document.getElementById('mapFrame').classList.add('active');
-            } else {
-                document.getElementById('hopFrame').classList.add('active');
-            }
-        }
-    </script>
-
+    <header>
+        <h1>Domain Mapper Projects</h1>
+    </header>
+    <main>
+        <div class="project-grid">
+        <a class="project-card" href="projects/accessibility/dashboard.html">
+            <span class="project-name">Accessibility</span>
+            <span class="project-url">https://www.pcc.edu/accessibility</span>
+        </a>
+        <a class="project-card" href="projects/instructional-support/dashboard.html">
+            <span class="project-name">Instructional Support</span>
+            <span class="project-url">https://www.pcc.edu/instructional-support</span>
+        </a>
+        </div>
+    </main>
 </body>
 </html>
